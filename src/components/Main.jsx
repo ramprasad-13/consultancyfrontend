@@ -49,6 +49,7 @@ const Main = () => {
     try {
         const response = await fetch('https://consultancybackend.vercel.app/senddata', {
             method: 'POST',
+            mode:'cors',
             headers: {
                 'Content-Type': 'application/json',
             },
