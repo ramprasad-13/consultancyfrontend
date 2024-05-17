@@ -1,0 +1,49 @@
+:root{
+    --orangecolor:#454545
+}
+
+h1{
+    color: var(--orangecolor);
+}
+
+@media (min-width: 300px){
+    .wrapper{
+        width: 280px;
+        margin:0 auto;
+    }
+}
+
+
+@media (min-width: 450px){
+    .wrapper{
+        width: 350px;
+        margin:0 auto;
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px){
+    .wrapper{
+        width: 450px;
+        margin:0 auto;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px){
+    .wrapper{
+        width: 500px;
+        margin:0 auto;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px){ 
+    .wrapper{
+        width:800px;
+        margin:0 auto;
+    }
+}
