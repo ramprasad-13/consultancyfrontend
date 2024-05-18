@@ -4,6 +4,8 @@ import { useState } from 'react';
 const Main = () => {
   
   const handleSubmit = async (e) => {
+    //show spinning icon
+    setLoading(true);
     e.preventDefault();
 
     const fullname = e.target.fullname.value;
@@ -47,9 +49,8 @@ const Main = () => {
     
 
     try {
-        const response = await fetch('https://consultancybackend.vercel.app/senddata', {
+        const response = await fetch('http://consultancybackend.vercel.app/senddata', {
             method: 'POST',
-            mode:'cors',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -61,6 +62,9 @@ const Main = () => {
             console.log("Data sent sucessfully")
             //close confirm msg
             document.getElementById('closebtn').click();
+
+            //alert thank you
+            setLoading(false);
             location.reload()
             alert("Thank You for submmiting")
         } else {
@@ -137,6 +141,7 @@ const [paymentmode,setPaymentMode]=useState('')
 const [tests,setTests] = useState({})
 const [checkedCountries, setCheckedCountries] = useState([]);
 
+const [isLoading, setLoading] = useState(false)
 
   return (
     <div className='wrapper'>
@@ -339,7 +344,13 @@ const [checkedCountries, setCheckedCountries] = useState([]);
               </div>
               <div className="modal-footer">
                 <button type="button" id='closebtn' className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" className="btn btn-primary">Confirm</button>
+                <button type='submit' disabled={isLoading} className="btn btn-primary">
+                    {isLoading ? (
+                          <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        ) : (
+                            'Confirm'
+                      )}
+                </button>
               </div>
             </div>
           </div>
