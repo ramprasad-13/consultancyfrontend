@@ -49,7 +49,7 @@ const Main = () => {
     
 
     try {
-        const response = await fetch('http://consultancybackend.vercel.app/senddata', {
+        const response = await fetch('https://consultancybackend.vercel.app/senddata', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
